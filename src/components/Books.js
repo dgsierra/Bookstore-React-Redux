@@ -1,31 +1,5 @@
 import React from 'react';
-import { createStore } from 'redux';
 import BookForm from './BooksForm';
-
-const bookCounter = (state = [], action) => {
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + 1;
-    case 'DECREMENT':
-      console.log(state);
-      return state - 1;
-    default:
-      return state;
-  }
-};
-
-const appStore = createStore(bookCounter);
-
-console.log(appStore.getState());
-console.log(appStore.dispatch({ type: 'INCREMENT' }));
-console.log(appStore.dispatch({ type: 'INCREMENT' }));
-console.log(appStore.getState());
-console.log(appStore.subscribe(() => {
-  console.log(appStore.getState());
-  console.log('State changed');
-}));
-
-const increase = () => appStore.dispatch({ type: 'INCREMENT' });
 
 export default function BooksList() {
   return (
@@ -34,7 +8,7 @@ export default function BooksList() {
       <h2 className="book-title">Book Title</h2>
       <h3 className="book-author">Book Author</h3>
       <div className="book-buttons">
-        <button type="button" onClick={increase} className="book-button">Comments</button>
+        <button type="button" className="book-button">Comments</button>
         <button type="button" className="book-button">Remove</button>
         <button type="button" className="book-button">Edit</button>
       </div>
