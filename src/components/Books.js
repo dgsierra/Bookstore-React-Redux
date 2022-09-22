@@ -1,12 +1,13 @@
 import React from 'react';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import BookForm from './BooksForm';
 
 export default function BooksList() {
+  const { bookName, gender } = useSelector((state) => state.books);
   return (
     <div>
-      <h3 className="book-category">Book Category</h3>
-      <h2 className="book-title">Book Title</h2>
+      <h3 className="book-category">{gender}</h3>
+      <h2 className="book-title">{bookName}</h2>
       <h3 className="book-author">Book Author</h3>
       <div className="book-buttons">
         <button type="button" className="book-button">Comments</button>
