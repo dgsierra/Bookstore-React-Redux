@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
+import { produce } from 'immer';
 
 const initialState = {
   gender: '',
@@ -14,21 +15,23 @@ export const booksSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
-    setBook: (state, action) => {
-      state.gender = action.payload.gender;
-      state.author = action.payload.author;
-      state.bookName = action.payload.bookName;
-      state.currentChapter = action.payload.currentChapter;
-      state.chapterName = action.payload.chapterName;
-      state.token = action.payload.token;
-    },
+    setBook: (state, action) => produce(state, (draft) => {
+      draft.gender = action.payload.gender;
+      draft.author = action.payload.author;
+      draft.bookName = action.payload.bookName;
+      draft.currentChapter = action.payload.currentChapter;
+      draft.chapterName = action.payload.chapterName;
+      draft.token = action.payload.token;
+    }),
     unsetBook(state) {
-      state.gender = '';
-      state.author = '';
-      state.bookName = '';
-      state.currentChapter = '1';
-      state.chapterName = '';
-      state.token = '';
+      produce(state, (draft) => {
+        draft.gender = '';
+        draft.author = '';
+        draft.bookName = '';
+        draft.currentChapter = '1';
+        draft.chapterName = '';
+        draft.token = '';
+      });
     },
   },
 });

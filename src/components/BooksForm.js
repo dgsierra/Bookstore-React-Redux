@@ -9,21 +9,20 @@ export default function BookForm() {
     dispatch(setBook(
       {
         gender: e.target.children[1].value,
-        author: e.target.children[0].value,
-        bookName: '',
+        author: 'New Author',
+        bookName: e.target.children[0].value,
         currentChapter: '1',
-        chapterName: '',
+        chapterName: 'Intro',
         token: '',
       },
     ));
-    console.log(e.target.children[1].value);
   };
-  const { author, gender } = useSelector((state) => state.books);
+  const { bookName, gender } = useSelector((state) => state.books);
   return (
     <div>
       <h1>
         ADD NEW BOOK
-        {author}
+        {bookName}
         {gender}
       </h1>
       <form onSubmit={submitHandler}>
