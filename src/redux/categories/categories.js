@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
+import { produce } from 'immer';
 
 const initialState = {
   categories: '',
@@ -10,7 +11,9 @@ export const categoriesSlice = createSlice({
   initialState,
   reducers: {
     setCategorie: (state) => {
-      state.categories = 'COMMING SOON';
+      produce(state, (draft) => {
+        draft.categories = 'COMMING SOON';
+      });
     },
   },
 });
