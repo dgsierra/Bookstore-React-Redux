@@ -10,17 +10,16 @@ export default function BooksList() {
   const authors = ['Sthephen King', 'J.K. Rowling', 'George R.R. Martin', 'Suzanne Collins', 'Harper Lee', 'J.R.R. Tolkien', 'C.S. Lewis', 'Mark Twain', 'Charles Dickens', 'Suzanne Collins'];
   const bookProgress = Math.floor(Math.random() * 100);
   const bookId = uuidv4();
-  const newBook = [...stateBooks, {
-    gender,
-    author: authors[Math.floor(Math.random() * 10)],
-    bookName,
-    currentChapter: '1',
-    chapterName: 'Intro',
-    progress: bookProgress,
-    token: bookId,
-  }];
   useEffect(() => {
-    console.log('useEffect');
+    const newBook = [...stateBooks, {
+      gender,
+      author: authors[Math.floor(Math.random() * 10)],
+      bookName,
+      currentChapter: '1',
+      chapterName: 'Intro',
+      progress: bookProgress,
+      token: bookId,
+    }];
     addBook(newBook);
   }, [bookName, gender]);
 

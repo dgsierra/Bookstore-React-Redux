@@ -6,7 +6,6 @@ export default function BookForm() {
   const dispatch = useDispatch();
   function submitHandler(e) {
     e.preventDefault();
-    console.log('submit');
     dispatch(setBook(
       {
         gender: e.target.children[1].value,
