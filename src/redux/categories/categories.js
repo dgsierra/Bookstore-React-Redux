@@ -10,11 +10,9 @@ export const categoriesSlice = createSlice({
   name: 'categories',
   initialState,
   reducers: {
-    setCategorie: (state) => {
-      produce(state, (draft) => {
-        draft.categories = 'COMMING SOON';
-      });
-    },
+    setCategorie: (state) => produce(state, (draft) => {
+      draft.categories = 'COMMING SOON';
+    }),
   },
 });
 

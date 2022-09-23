@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { setCategorie } from '../redux/categories/categories';
 
 export default function Categories() {
-  const [categories, setCategories] = useState('');
+  const { categories } = useSelector((state) => state.categories);
+  const dispatch = useDispatch();
+  const [currentCategorie, setCategories] = useState('');
   const checkCategories = () => {
-    console.log('working');
+    dispatch(setCategorie());
   };
+  useEffect(() => {
+    setCategories(categories);
+  }, [categories]);
   return (
     <div>
-      <h1>{categories}</h1>
-      <button value="category" onClick={() => checkCategories()} type="submit">ADD NEW CATEGORY</button>
+      <h1>{currentCategorie}</h1>
+      <button value="category" onClick={() => checkCategories()} type="submit">Check Status</button>
     </div>
   );
 }
