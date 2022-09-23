@@ -1,0 +1,27 @@
+ul {
+    list-style: none;
+    text-decoration: none;
+}
+
+
+
+.navbar {
+    background-color: aqua;
+    display: flex;
+}
+
+.navbar-logo {
+    min-width: 200px;
+    color: #0290ff;
+    font-family: 'Montserrat', sans-serif;
+    background-color: blueviolet;
+}
+
+.navbar-elements {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+}
