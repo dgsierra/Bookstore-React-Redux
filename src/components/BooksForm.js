@@ -1,11 +1,12 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setBook } from '../redux/books/books';
 
 export default function BookForm() {
   const dispatch = useDispatch();
-  const submitHandler = (e) => {
+  function submitHandler(e) {
     e.preventDefault();
+    console.log('submit');
     dispatch(setBook(
       {
         gender: e.target.children[1].value,
@@ -16,14 +17,11 @@ export default function BookForm() {
         token: '',
       },
     ));
-  };
-  const { bookName, gender } = useSelector((state) => state.books);
+  }
   return (
     <div>
       <h1>
         ADD NEW BOOK
-        {bookName}
-        {gender}
       </h1>
       <form onSubmit={submitHandler}>
         <input type="text" name="book-title" placeholder="Book Title" />

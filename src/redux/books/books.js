@@ -5,9 +5,10 @@ import { produce } from 'immer';
 const initialState = {
   gender: '',
   author: '',
-  bookName: '',
+  bookName: 'mytest',
   currentChapter: '1',
   chapterName: '',
+  progress: 0,
   token: '',
 };
 
@@ -21,6 +22,7 @@ export const booksSlice = createSlice({
       draft.bookName = action.payload.bookName;
       draft.currentChapter = action.payload.currentChapter;
       draft.chapterName = action.payload.chapterName;
+      draft.progress = action.payload.progress;
       draft.token = action.payload.token;
     }),
     unsetBook(state) {
@@ -30,6 +32,7 @@ export const booksSlice = createSlice({
         draft.bookName = '';
         draft.currentChapter = '1';
         draft.chapterName = '';
+        draft.progress = '';
         draft.token = '';
       });
     },

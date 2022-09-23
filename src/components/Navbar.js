@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import BooksList from './Books';
 import Categories from './Categories';
+import BookForm from './BooksForm';
 
 export default function Navbar() {
   return (
@@ -15,7 +16,15 @@ export default function Navbar() {
       </nav>
 
       <Routes>
-        <Route path="/" element={<BooksList />} />
+        <Route
+          path="/"
+          element={(
+            <div>
+              <BooksList />
+              <BookForm />
+            </div>
+        )}
+        />
         <Route path="/categories" element={<Categories />} />
       </Routes>
     </>
