@@ -3,10 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import { produce } from 'immer';
 
 const initialState = {
-  gender: '',
-  author: '',
-  bookName: 'mytest',
-  currentChapter: '1',
+  gender: 'Action',
+  author: 'Suzanne Collins',
+  bookName: 'The Hunger Games',
+  currentChapter: '17',
   chapterName: '',
   progress: 0,
   token: '',

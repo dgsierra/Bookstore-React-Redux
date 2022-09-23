@@ -7,14 +7,15 @@ export default function BooksList() {
   const { bookName, gender } = useSelector((state) => state.books);
   const [stateBooks, addBook] = useState([]);
   const dispatch = useDispatch();
+  const authors = ['Sthephen King', 'J.K. Rowling', 'George R.R. Martin', 'Suzanne Collins', 'Harper Lee', 'J.R.R. Tolkien', 'C.S. Lewis', 'Mark Twain', 'Charles Dickens', 'Suzanne Collins'];
   const bookProgress = Math.floor(Math.random() * 100);
   const bookId = uuidv4();
   const newBook = [...stateBooks, {
     gender,
-    author: '',
+    author: authors[Math.floor(Math.random() * 10)],
     bookName,
     currentChapter: '1',
-    chapterName: '',
+    chapterName: 'Intro',
     progress: bookProgress,
     token: bookId,
   }];
@@ -34,7 +35,7 @@ export default function BooksList() {
       <div key={Math.random() * 10000}>
         <h3 className="book-category">{data.gender}</h3>
         <h2 className="book-title">{data.bookName}</h2>
-        <h3 className="book-author">Book Author</h3>
+        <h3 className="book-author">{data.author}</h3>
         <div className="book-buttons">
           <button type="button" className="book-button">Comments</button>
           <button type="button" onClick={() => removeBook(data.token)} className="book-button">Remove</button>
@@ -49,8 +50,8 @@ export default function BooksList() {
           </div>
         </div>
         <div className="book-chapter">
-          <h3 className="book-chapter-title">Current Chapter</h3>
-          <h3 className="book-chapter-number">Chapter 1</h3>
+          <h3 className="book-chapter-title">{data.chapterName}</h3>
+          <h3 className="book-chapter-number">{data.currentChapter}</h3>
           <button type="button" className="book-button">UPDATE PROGRESS</button>
         </div>
 
