@@ -3,6 +3,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 import BooksList from './Books';
 import Categories from './Categories';
 import BookForm from './BooksForm';
+import '../css/Navbar.css';
 
 export default function Navbar() {
   return (
