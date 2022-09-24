@@ -7,31 +7,30 @@ const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstor
 export const fetchBooks = createAsyncThunk('books/fetchBooks/GET', async () => {
   const res = await fetch(URL);
   const data = await res.json();
-  console.log(data);
   const books = Object.keys(data).map((item) => ({ item, ...data[item][0] }));
   return books;
 });
 
-export const addBook = createAsyncThunk('books/fetchBooks/ADD', async (newBook, thunkAPI) => {
+export const addBook = createAsyncThunk('books/fetchBooks/ADD', async (newBook, action) => {
   await fetch(URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(newBook),
-  }).then(() => thunkAPI.dispatch(fetchBooks()));
+  }).then(() => action.dispatch(fetchBooks()));
   return newBook;
 });
 
-// const removeBook = createAsyncThunk('books/fetchBooks/REMOVE', async (id, thunkAPI) => {
-//   await fetch(`${URL}/${id}`, {
-//     method: 'DELETE',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   }).then(() => thunkAPI.dispatch(fetchBooks()));
-//   return id;
-// });
+export const removeBook = createAsyncThunk('books/fetchBooks/REMOVE', async (id, action) => {
+  await fetch(`${URL}${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(() => action.dispatch(fetchBooks()));
+  return id;
+});
 
 const initialState = {
   status: 'test',
@@ -45,7 +44,6 @@ export const booksSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchBooks.fulfilled, (state, action) => {
       state.status = 'completed';
-      console.log('action', action.payload);
       state.books = action.payload;
     });
     builder.addCase(fetchBooks.rejected, (state) => {
