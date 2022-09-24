@@ -1,29 +1,44 @@
-const ADD_BOOK = 'bookStore/books/ADD_BOOK';
-const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
+/* eslint-disable no-param-reassign */
+import { createSlice } from '@reduxjs/toolkit';
+import { produce } from 'immer';
 
-const initialState = [];
-
-const addBook = (payload) => ({
-  type: ADD_BOOK,
-  payload,
-});
-
-const removeBook = (payload) => ({
-  type: REMOVE_BOOK,
-  payload,
-});
-
-const booksReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_BOOK:
-      return [...state, action.payload];
-    case REMOVE_BOOK:
-      return state.filter((book) => book.id !== action.payload);
-    default:
-      return state;
-  }
+const initialState = {
+  gender: 'Action',
+  author: 'Suzanne Collins',
+  bookName: 'The Hunger Games',
+  currentChapter: '17',
+  chapterName: '',
+  progress: 0,
+  token: '',
 };
 
-export { addBook, removeBook };
+export const booksSlice = createSlice({
+  name: 'books',
+  initialState,
+  reducers: {
+    setBook: (state, action) => produce(state, (draft) => {
+      draft.gender = action.payload.gender;
+      draft.author = action.payload.author;
+      draft.bookName = action.payload.bookName;
+      draft.currentChapter = action.payload.currentChapter;
+      draft.chapterName = action.payload.chapterName;
+      draft.progress = action.payload.progress;
+      draft.token = action.payload.token;
+    }),
+    unsetBook(state) {
+      produce(state, (draft) => {
+        draft.gender = '';
+        draft.author = '';
+        draft.bookName = '';
+        draft.currentChapter = '1';
+        draft.chapterName = '';
+        draft.progress = '';
+        draft.token = '';
+      });
+    },
+  },
+});
 
-export default booksReducer;
+export const { setBook, unsetBook } = booksSlice.actions;
+
+export default booksSlice.reducer;

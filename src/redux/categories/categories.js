@@ -1,13 +1,21 @@
-const CHECK_CATEGORY = 'CHECK_CATEGORY';
+/* eslint-disable no-param-reassign */
+import { createSlice } from '@reduxjs/toolkit';
+import { produce } from 'immer';
 
-const initialState = 'UNDER CONSTRUCTION';
-export default function categoriesReducer(state = initialState, action) {
-  switch (action.type) {
-    case CHECK_CATEGORY:
-      return state;
-    default:
-      return state;
-  }
-}
+const initialState = {
+  categories: '',
+};
 
-export const checkCategory = () => ({ type: CHECK_CATEGORY });
+export const categoriesSlice = createSlice({
+  name: 'categories',
+  initialState,
+  reducers: {
+    setCategorie: (state) => produce(state, (draft) => {
+      draft.categories = 'COMMING SOON';
+    }),
+  },
+});
+
+export const { setCategorie } = categoriesSlice.actions;
+
+export default categoriesSlice.reducer;

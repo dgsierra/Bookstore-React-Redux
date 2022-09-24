@@ -1,13 +1,10 @@
-import { createStore, combineReducers, applyMiddleware } from 'react-redux';
-import logger from 'redux-logger';
+import { configureStore } from '@reduxjs/toolkit';
 import booksReducer from './books/books';
-import { checkCategory } from './categories/categories';
+import categoriesReducer from './categories/categories';
 
-const rootReducer = combineReducers({
-  books: booksReducer,
-  categories: checkCategory,
+export default configureStore({
+  reducer: {
+    books: booksReducer,
+    categories: categoriesReducer,
+  },
 });
-
-const store = createStore(rootReducer, applyMiddleware(logger));
-
-export default store;
