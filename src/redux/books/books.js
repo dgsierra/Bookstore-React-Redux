@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/kG7wZjYvsuc5XekVgisx/books/';
 
-export const fetchBooks = createAsyncThunk('bookstore/books/GET', async () => {
+export const fetchBooks = createAsyncThunk('books/fetchBooks/GET', async () => {
   const res = await fetch(URL);
   const data = await res.json();
   console.log(data);
