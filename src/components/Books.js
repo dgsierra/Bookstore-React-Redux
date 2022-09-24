@@ -1,24 +1,21 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
-import { fetchBooks } from '../redux/books/books';
+import { fetchBooks, removeBook } from '../redux/books/books';
 
 export default function BooksList() {
-  const { status, books } = useSelector((state) => state.books);
-  console.log(status);
+  const { books } = useSelector((state) => state.books);
   const [stateBooks, addBook] = useState([{ title: 'test', author: 'test' }]);
   const dispatch = useDispatch();
   const bookProgress = Math.floor(Math.random() * 100);
-  const bookId = uuidv4();
   useEffect(() => {
     dispatch(fetchBooks());
   }, []);
   useEffect(() => {
     addBook(books);
   }, [books]);
-  const removeBook = (id) => {
+  const removeHandler = (id) => {
     console.log(id);
+    dispatch(removeBook(id));
   };
   return (
     stateBooks.map((data) => (
@@ -30,11 +27,10 @@ export default function BooksList() {
           <button type="button" className="book-button">Comments</button>
           <button
             type="button"
-            onClick={() => removeBook(data.item_id)}
+            onClick={() => removeHandler(data.item)}
             className="book-button"
           >
             Remove
-
           </button>
           <button type="button" className="book-button">Edit</button>
         </div>
@@ -42,7 +38,7 @@ export default function BooksList() {
           <div className="book-progress-bar">Bar</div>
           <div className="book-progress-bar-fill">Progress</div>
           <div className="book-progress-percentage">
-            99
+            {bookProgress}
             %
           </div>
         </div>
