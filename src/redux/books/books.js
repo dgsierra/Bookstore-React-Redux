@@ -12,7 +12,7 @@ export const fetchBooks = createAsyncThunk('books/fetchBooks/GET', async () => {
   return books;
 });
 
-const addBook = createAsyncThunk('books/fetchBooks/ADD', async (newBook, thunkAPI) => {
+export const addBook = createAsyncThunk('books/fetchBooks/ADD', async (newBook, thunkAPI) => {
   await fetch(URL, {
     method: 'POST',
     headers: {
