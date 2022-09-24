@@ -1,23 +1,24 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { unsetBook } from '../redux/books/books';
+import { fetchBooks } from '../redux/books/books';
 
 export default function BooksList() {
-  const { title, category } = useSelector((state) => state.books);
-  const [stateBooks, addBook] = useState([]);
+  const { status, books } = useSelector((state) => state.books);
+  console.log(status);
+  const [stateBooks, addBook] = useState([{ title: 'test', author: 'test' }]);
   const dispatch = useDispatch();
-  const authors = ['Sthephen King', 'J.K. Rowling', 'George R.R. Martin', 'Suzanne Collins', 'Harper Lee', 'J.R.R. Tolkien', 'C.S. Lewis', 'Mark Twain', 'Charles Dickens', 'Suzanne Collins'];
   const bookProgress = Math.floor(Math.random() * 100);
   const bookId = uuidv4();
-  console.log(title, category);
   useEffect(() => {
+    dispatch(fetchBooks());
   }, []);
+  useEffect(() => {
+    addBook(books);
+  }, [books]);
   const removeBook = (id) => {
-    dispatch(unsetBook());
-    const oldArray = [...stateBooks];
-    const newArray = oldArray.filter((book) => book.token !== id);
-    addBook(newArray);
+    console.log(id);
   };
   return (
     stateBooks.map((data) => (
@@ -27,7 +28,14 @@ export default function BooksList() {
         <h3 className="book-author">{data.author}</h3>
         <div className="book-buttons">
           <button type="button" className="book-button">Comments</button>
-          <button type="button" onClick={() => removeBook(data.token)} className="book-button">Remove</button>
+          <button
+            type="button"
+            onClick={() => removeBook(data.item_id)}
+            className="book-button"
+          >
+            Remove
+
+          </button>
           <button type="button" className="book-button">Edit</button>
         </div>
         <div className="book-progress">
