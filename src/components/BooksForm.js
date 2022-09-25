@@ -21,22 +21,22 @@ export default function BookForm() {
     reset();
   };
   return (
-    <div>
+    <div className="form-section">
       <h1 className="section__title">
         ADD NEW BOOK
       </h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input type="text" defaultValue="" {...register('title', { required: true })} placeholder="Book Title" />
-        <input type="text" {...register('author', { required: true })} placeholder="Book Author" />
-        <select defaultValue="" {...register('category')}>
-          <option value="Action">Action</option>
+      <form onSubmit={handleSubmit(onSubmit)} className="book-form">
+        <input className="form-title" type="text" defaultValue="" {...register('title', { required: true })} placeholder="Book Title" />
+        <input className="form-title" type="text" {...register('author', { required: true })} placeholder="Book Author" />
+        <select className="action-select" defaultValue="" {...register('category')}>
+          <option value="Action">Category</option>
           <option value="Biography">Biography</option>
           <option value="History">History</option>
           <option value="Horror">Horror</option>
           <option value="Kids">Kids</option>
           <option value="Learning">Learning</option>
         </select>
-        <button type="submit">ADD BOOK</button>
+        <button type="submit" className="form-btn">ADD BOOK</button>
       </form>
     </div>
   );
