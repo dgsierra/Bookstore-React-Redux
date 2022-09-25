@@ -22,7 +22,7 @@ export default function BookForm() {
   };
   return (
     <div>
-      <h1>
+      <h1 className="section__title">
         ADD NEW BOOK
       </h1>
       <form onSubmit={handleSubmit(onSubmit)}>
