@@ -139,19 +139,18 @@ input::placeholder {
 }
 
 .book-form {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: blue;
-    align-items: center;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: blue;
+  align-items: center;
 }
 
 .action-select {
-    width: 15%;
-    height: 100%;
-    min-height: 42px;
-    color: #909090;
-    border-radius: 5px;
-    padding-left: 5px;
+  width: 15%;
+  height: 100%;
+  min-height: 42px;
+  color: #909090;
+  border-radius: 5px;
+  padding-left: 5px;
 }
