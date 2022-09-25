@@ -15,7 +15,7 @@ export default function Categories() {
   return (
     <div>
       <h1>{currentCategorie}</h1>
-      <button value="category" onClick={() => checkCategories()} type="submit">Check Status</button>
+      <button className="book-button" value="category" onClick={() => checkCategories()} type="submit">Check Status</button>
     </div>
   );
 }
