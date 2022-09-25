@@ -45,11 +45,13 @@ export default function BooksList() {
           <div className="book-progress-bar-fill">
             <CircularProgressbar value={bookProgress} text="" />
           </div>
-          <div className="book-progress-percentage">
-            {bookProgress}
-            %
+          <div className="progress">
+            <div className="book-progress-percentage">
+              {bookProgress}
+              %
+            </div>
+            <div className="book-progress-bar">Completed</div>
           </div>
-          <div className="book-progress-bar">Completed</div>
         </div>
         <div className="book-chapter">
           <h3 className="book-chapter-title">CURRENT CHAPTER</h3>

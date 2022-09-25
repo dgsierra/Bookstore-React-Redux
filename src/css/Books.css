@@ -1,6 +1,6 @@
 .panel-bg {
   display: flex;
-  background-color: #e8e8e8;
+  background-color: #fff;
   justify-content: space-between;
   padding-left: 5%;
   margin-right: 5%;
@@ -115,7 +115,6 @@ input::placeholder {
   width: 90vw;
   display: flex;
   flex-direction: column;
-  background-color: aqua;
   justify-content: space-between;
   gap: 10px;
 }
@@ -142,7 +141,6 @@ input::placeholder {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: blue;
   align-items: center;
 }
 
@@ -153,4 +151,33 @@ input::placeholder {
   color: #909090;
   border-radius: 5px;
   padding-left: 5px;
+  border: #888 solid 1px;
 }
+
+.book-progress {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+ .progress {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+    align-content: space-between;
+    gap: 10px;
+ }
+
+ .book-progress-bar {
+    font-size: 1rem;
+    color: #909090;
+ }
+
+ .book-progress-percentage {
+    font-size: 3rem;
+    color: #121212;
+ }
+
+ body {
+    background-color: #e8e8e8;
+ }
