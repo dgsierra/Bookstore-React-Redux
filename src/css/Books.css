@@ -155,29 +155,29 @@ input::placeholder {
 }
 
 .book-progress {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
- .progress {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: space-between;
-    align-content: space-between;
-    gap: 10px;
- }
 
- .book-progress-bar {
-    font-size: 1rem;
-    color: #909090;
- }
+.progress {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  gap: 10px;
+}
 
- .book-progress-percentage {
-    font-size: 3rem;
-    color: #121212;
- }
+.book-progress-bar {
+  font-size: 1rem;
+  color: #909090;
+}
 
- body {
-    background-color: #e8e8e8;
- }
+.book-progress-percentage {
+  font-size: 3rem;
+  color: #121212;
+}
+
+body {
+  background-color: #e8e8e8;
+}
