@@ -66,7 +66,6 @@
 
 .book-title {
   font-family: 'Roboto Slab', serif;
-  font-weight: bold;
   color: #121212;
   font-size: 2rem;
   font-weight: 500;
@@ -82,7 +81,6 @@
   font-weight: 300;
   color: #4386bf;
   font-size: 1rem;
-  font-weight: 400;
   height: 30px;
   width: 100px;
 }
@@ -94,13 +92,12 @@
 }
 
 .book-progress-bar-fill {
-  height: 100px;
-  width: 100px;
+  height: 4.5rem;
+  width: 4.5rem;
 }
 
 .section__title {
   font-family: 'Roboto Slab', serif;
-  font-weight: 700;
   color: #888;
   font-weight: bolder;
   margin: 10px 0;
@@ -183,13 +180,13 @@ input::placeholder {
 }
 
 .book-progress-bar {
-  font-size: 1rem;
+  font-size: 0.83rem;
   color: #909090;
 }
 
 .book-progress-percentage {
-  font-size: 3rem;
-  color: #121212;
+  font-size: 2rem;
+  color: #000;
 }
 
 body {
@@ -197,15 +194,15 @@ body {
 }
 
 .book-chapter-title {
-    font-family: 'Roboto Slab', serif;
-    font-weight: 300;
-    color: #121212;
-    font-size: .813rem;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  color: #121212;
+  font-size: 0.813rem;
 }
 
 .book-chapter-number {
-    font-family: 'Roboto Slab', serif;
-    font-weight: 500;
-    color: #121212;
-    font-size: 1rem;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 500;
+  color: #121212;
+  font-size: 1rem;
 }
