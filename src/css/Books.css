@@ -179,5 +179,5 @@ input::placeholder {
 }
 
 body {
-  background-color: #e8e8e8;
+  background-color: rgba(0, 0, 0, 0.05);
 }
