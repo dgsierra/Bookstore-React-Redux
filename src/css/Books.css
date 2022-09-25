@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Roboto+Slab:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Roboto+Slab:wght@300;700;900&display=swap');
 
 .panel-bg {
   display: flex;
@@ -9,8 +9,10 @@
   align-items: center;
   height: 25%;
   width: 85vw;
-  border-radius: 10px;
-  margin-bottom: 2%;
+  border-radius: 4px;
+  margin-bottom: 17px;
+  border: #e8e8e8 1px solid;
+  min-width: 750px;
 }
 
 .container-text {
@@ -68,7 +70,7 @@
   font-family: 'Roboto Slab', serif;
   color: #121212;
   font-size: 2rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .book-category {
@@ -83,11 +85,12 @@
   font-size: 1rem;
   height: 30px;
   width: 100px;
+  background-color: transparent;
 }
 
 .middle-button {
-  border-left: #909090 solid 1px;
-  border-right: #909090 solid 1px;
+  border-left: #e8e8e8 solid 1px;
+  border-right: #e8e8e8 solid 1px;
   padding: 0 10px;
 }
 
@@ -112,6 +115,7 @@ input::placeholder {
 }
 
 .form-title {
+  padding-left: 10px;
   outline: none;
   width: 10%;
   height: 10%;
@@ -120,6 +124,7 @@ input::placeholder {
   border-radius: 4px;
   border: solid 1px #e8e8e8;
   background-color: #fff;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .form-section {
@@ -163,6 +168,7 @@ input::placeholder {
   border-radius: 5px;
   padding-left: 5px;
   border: #888 solid 1px;
+  border: solid 1px #e8e8e8;
 }
 
 .book-progress {
